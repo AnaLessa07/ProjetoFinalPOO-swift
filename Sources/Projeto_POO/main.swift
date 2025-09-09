@@ -6,6 +6,15 @@ enum NivelAluno {
     case avancado
 }
 
+protocol Manutencao {
+    var nome Item: String
+    var dataUltimaManutencao: String
+
+    func realizarManutencao() -> Bool{
+    }
+    
+}
+
 let aluno = Aluno(nome: "Ana", email: "anal@", matricula: "1993", nivel: .iniciante, plano: "Plano Mensal")
 
 print(aluno.nome)

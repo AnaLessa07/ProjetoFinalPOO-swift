@@ -5,14 +5,13 @@ class aluno:pessoa {
     var nivel: NivelAluno
     private (set) var plano: Plano
 
-    init (nome: String, email: String, matricula: String, nivel: NivelAluno, plano: Plano){
+    init (nome: String, email: String, matricula: String, nivel: NivelAluno, plano: String){
         self.matricula = matricula
         self.nivel = .iniciante
-        self.plano = plano
         super.init (nome:nome, email:email)
     }
 
-    override func getDescricao(){
-       return super.getDescricao() + ("matricula: \(matricula), plano: \(Plano)")
+    override func getDescricao() -> String{
+       return super.getDescricao() + "matricula: \(matricula), plano: \(Plano)"
     }
 }

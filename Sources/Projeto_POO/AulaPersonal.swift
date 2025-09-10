@@ -1,7 +1,7 @@
 import Foundation
 
 class AulaPersonal: Aula{
-    var aluno: aluno
+    var aluno: Aluno
 
     init(nome:String, instrutor: Instrutor, aluno: Aluno){
         self.aluno = aluno

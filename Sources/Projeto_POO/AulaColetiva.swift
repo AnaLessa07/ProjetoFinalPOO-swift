@@ -1,10 +1,10 @@
 import Foundation
 
-class AulaColetiva:Aula{
-    private (set) var alunosInscritos: [String: aluno] = [:]
-    var capacidadeMaxima = Int
+class AulaColetiva: Aula{
+    private (set) var alunosInscritos: [String: Aluno] = [:]
+    var capacidadeMaxima: Int = 25
 
-    init (nome: String, instrutor: Instrutor, alunosInscritos [String : Aluno], capacidadeMaxima: Int){
+    init (nome: String, instrutor: Instrutor, alunosInscritos: [String : Aluno], capacidadeMaxima: Int = 25){
         self.alunosInscritos = alunosInscritos
         self.capacidadeMaxima = 25
         super.init(nome: nome, instrutor: instrutor)

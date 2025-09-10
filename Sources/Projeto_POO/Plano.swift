@@ -1,10 +1,10 @@
 import Foundation
 
 class Plano {
-    var plano_nome: String
+    var nome: String
 
-    init (plano_nome: String){
-        self.plano_nome = plano_nome
+    init (nome: String){
+        self.nome = nome
     }
 
     func CalcularMensalidade() -> Double{

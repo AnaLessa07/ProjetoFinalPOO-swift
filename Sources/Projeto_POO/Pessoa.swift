@@ -1,6 +1,6 @@
 import Foundation
 
-class pessoa {
+class Pessoa {
     var nome: String
     var email: String
 

@@ -1,13 +1,13 @@
 import Foundation
 
-class instrutor:pessoa {
+class Instrutor: Pessoa {
     var especialidade: String
 
     init (nome: nome, email: email, especialidade: String){
         self.especialidade = especialidade
-        super.init (nome:nome, email:email)
+        super.init(nome: nome, email: email)
         }
-        override func getDescricao(){
-            return super.getDescricao() + "Especialidade: \(especialidade)"
+        override func getDescricao() -> String{
+            return super.getDescricao() + "\n -> Especialidade: \(especialidade)"
     }
 }

@@ -2,14 +2,14 @@ import Foundation
 
 class Aula{
     var nome: String
-    var Instrutor = instrutor
+    var instrutor = Instrutor
 
-    init (nome: String, Instrutor: String){
+    init (nome: String, instrutor: Instrutor){
         self.nome = nome
-        self.Instrutor = instrutor
+        self.instrutor = instrutor
     }
 
     func getDescricao() -> String{
-        return ("nome da aula: \(nome), nome do instrutor: \(instrutor.nome)")
+        return "nome da aula: \(nome), nome do instrutor: \(instrutor.nome)"
     }
 }

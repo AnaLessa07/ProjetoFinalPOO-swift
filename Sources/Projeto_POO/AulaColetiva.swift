@@ -1,26 +1,34 @@
 import Foundation
 
 class AulaColetiva: Aula{
-    private (set) var alunosInscritos: [String: Aluno] = [:]
-    var capacidadeMaxima: Int = 25
+    private (set) var alunosInscritos: [String: Aluno] [:]
+    var capacidadeMaxima = Int
 
-    init (nome: String, instrutor: Instrutor, alunosInscritos: [String : Aluno], capacidadeMaxima: Int = 25){
-        self.alunosInscritos = alunosInscritos
+    init (){
         self.capacidadeMaxima = 25
+
         super.init(nome: nome, instrutor: instrutor)
     }
 
     func inscrever(aluno: Aluno) -> Bool{
-        if (alunosInscritos.count >= capacidadeMaxima){
+        if (alunosInscritos.count <= capacidadeMaxima){
             print("Aula Lotada")
+            return false
         }else{
             print("Turma com vagas abertas")
+            return true
         }
-        if (alunosInscritos {$1.key == aluno}) {
+        if (alunosInscritos.keys.contains(aluno.matricula)) {
             print("Aluno ja esta na turma")
+            return false
         } else{
-            alunosInscritos.insert(aluno)
+            alunosInscritos [aluno.matricula] = aluno
             print("Aluno foi adicionado para aula!")
+            return true
         }
+    }
+
+    override func getDescricao() -> String{
+        return super.getDescricao() + "Numero de vagas: \((alunosInscritos.count) - capacidadeMaxima) Capacidade da turma: \(capacidadeMaxima)"
     }
 }

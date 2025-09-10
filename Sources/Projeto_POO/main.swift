@@ -7,8 +7,8 @@ enum NivelAluno {
 }
 
 protocol Manutencao {
-    var nome Item: String
-    var dataUltimaManutencao: String
+    var nomeItem: String {get}
+    var dataUltimaManutencao: String {get}
 
     func realizarManutencao() -> Bool
     

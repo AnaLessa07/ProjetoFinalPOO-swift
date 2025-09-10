@@ -33,10 +33,15 @@ class Academia{
             print("Add com sucesso")
         }
 
-        func matricularAluno(nome: String, email: String, matricula: String, plano: Plano) -> Aluno{
+        func matricularAluno(nome: String, email: String, matricula: String, plano: Plano) -> Aluno {
             var novoAluno = Aluno(nome: nome, email: email, matricula: matricula, plano: Plano)
+            matricularAluno(novoAluno)
+            return novoAluno
         }
 
+        func buscarAluno (porMatricula matricula: String) -> Aluno?{
+            
+        }
 
     }
 }

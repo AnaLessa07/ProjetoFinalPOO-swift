@@ -4,7 +4,7 @@ class AulaColetiva: Aula{
     private (set) var alunosInscritos: [String: Aluno] [:]
     var capacidadeMaxima = Int
 
-    init (){
+    override init (nome: String, instrutor: Instrutor){
         self.capacidadeMaxima = 25
 
         super.init(nome: nome, instrutor: instrutor)

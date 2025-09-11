@@ -11,19 +11,7 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .executableTarget(
             name: "Projeto_POO"
-        ),
-        .executableTarget(
-            name: "Aula_2"
-        ),
-        .executableTarget(
-            name: "Aula_3"
-        ),
-        .executableTarget(
-            name: "Aula_4"
-        ),
-        .executableTarget(
-            name: "Aula_5"
-        ),
+        )
     ]
 )
 

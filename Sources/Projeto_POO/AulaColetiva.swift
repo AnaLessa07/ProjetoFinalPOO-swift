@@ -1,12 +1,11 @@
 import Foundation
 
 class AulaColetiva: Aula{
-    private (set) var alunosInscritos: [String: Aluno] [:]
-    var capacidadeMaxima = Int
+    private (set) var alunosInscritos: [String: Aluno] = [:]
+    var capacidadeMaxima: Int
 
     override init (nome: String, instrutor: Instrutor){
         self.capacidadeMaxima = 25
-
         super.init(nome: nome, instrutor: instrutor)
     }
 
@@ -29,6 +28,6 @@ class AulaColetiva: Aula{
     }
 
     override func getDescricao() -> String{
-        return super.getDescricao() + "Numero de vagas: \((alunosInscritos.count) - capacidadeMaxima) Capacidade da turma: \(capacidadeMaxima)"
+        return super.getDescricao() + "\n Numero de vagas: \(capacidadeMaxima - alunosInscritos.count) Capacidade da turma: \(capacidadeMaxima)"
     }
 }

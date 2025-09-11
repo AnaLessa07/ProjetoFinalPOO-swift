@@ -1,47 +1,71 @@
 import Foundation
 
-class Academia{
-    let nome: String
-    private (set) var alunosMatriculados: [String: Aluno] [:]
-    private (set) var instrutorContratados: [String: Instrutor] [:]
-    private (set) var aparelhos: ([Aparelho])
-    private (set) var aulasDisponiveis: ([Aula])
+class Academia {
+    private let nome: String
+    private var alunosMatriculados: [String: Aluno] = [:]
+    private var instrutorContratados: [String: Instrutor] = [:]
+    private var aparelhos: [Aparelho] = []
+    private var aulasDisponiveis: [Aula] = []
     
-    init (nome: String, alunosMatriculados: [String: Aluno], instrutorContratados: [String: Instrutor], aparelhos: ([Aparelho]), aulasDisponiveis: ([Aula])){
-        self.alunosMatriculados = alunosMatriculados
-        self.instrutorContratados = instrutorContratados
-        self.aparelhos = aparelhos
-        self.aulasDisponiveis = aulasDisponiveis
+    init (nome: String){
+        self.nome = nome
     }
 
     func adicionarAparelho(_ aparelho: Aparelho){
-        aparelhos.append(Aparelho.nomeItem)
+        aparelhos.append(aparelho)
     }
     func adicionarAula(_ aula: Aula){
-        aulasDisponiveis.append(Aula.nome)
+        aulasDisponiveis.append(aula)
     }
     func contratarInstrutor(_ instrutor: Instrutor){
-        instrutorContratados.append[instrutor.email] = instrutor
+        instrutorContratados[instrutor.email] = instrutor
     }
-
 
     func matricularAluno(_ aluno: Aluno){
-        if (alunosInscritos.keys.contains(aluno.matricula)){
+        if (alunosMatriculados.keys.contains(aluno.matricula)){
             print("Erro Aluno com matricula \(aluno.matricula) ja existe")
         }else{
-            alunosMatriculados [aluno.matricula] = aluno
+            alunosMatriculados[aluno.matricula] = aluno
             print("Add com sucesso")
         }
-
-        func matricularAluno(nome: String, email: String, matricula: String, plano: Plano) -> Aluno {
-            var novoAluno = Aluno(nome: nome, email: email, matricula: matricula, plano: Plano)
-            matricularAluno(novoAluno)
-            return novoAluno
-        }
-
-        func buscarAluno (porMatricula matricula: String) -> Aluno?{
-            
-        }
-
     }
+    func matricularAluno(nome: String, email: String, matricula: String, plano: Plano) -> Aluno {
+        let novoAluno = Aluno(nome: nome, email: email, matricula: matricula, plano: plano)
+        matricularAluno(novoAluno)
+        return novoAluno
+    }
+
+    func buscarAluno (porMatricula matricula: String) -> Aluno?{
+        if (alunosMatriculados.keys.contains(matricula)) {
+            return alunosMatriculados[matricula]
+        } else {
+            return nil
+        }
+    }
+
+    func listarAlunos() {
+        print("---- Lista de Alunos Matriculados ----")
+        if (alunosMatriculados.isEmpty) {
+            print("Nenhum aluno matriculado.")
+        } else {
+            let listaOrdenada = alunosMatriculados.values.sorted {$0.nome < $1.nome}                
+            for aluno in listaOrdenada {
+                print(aluno.getDescricao())
+            }
+        }
+            print("--------------------------------------")
+    }
+
+    func listarAulas() {
+        print("---- Lista de Aulas ---")
+        if (aulasDisponiveis.isEmpty) {
+            print("Nenhuma aula disponível.")
+        } else {
+            for aula in aulasDisponiveis {
+                print(aula.getDescricao())
+            }
+        }
+            print("------------------------")
+    }
+
 }

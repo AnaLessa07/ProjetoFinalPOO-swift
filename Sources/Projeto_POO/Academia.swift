@@ -29,8 +29,8 @@ class Academia {
             print("Add com sucesso")
         }
     }
-    func matricularAluno(nome: String, email: String, matricula: String, plano: Plano) -> Aluno {
-        let novoAluno = Aluno(nome: nome, email: email, matricula: matricula, plano: plano)
+    func matricularAluno(nome: String, email: String, matricula: String, nivel: NivelAluno, plano: Plano) -> Aluno {
+        let novoAluno = Aluno(nome: nome, email: email, matricula: matricula, nivel: nivel, plano: plano)
         matricularAluno(novoAluno)
         return novoAluno
     }

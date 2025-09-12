@@ -1,11 +1,11 @@
 import Foundation
 
 class Academia {
-    private let nome: String
-    private var alunosMatriculados: [String: Aluno] = [:]
-    private var instrutorContratados: [String: Instrutor] = [:]
-    private var aparelhos: [Aparelho] = []
-    private var aulasDisponiveis: [Aula] = []
+    let nome: String
+    private (set) var alunosMatriculados: [String: Aluno] = [:]
+    private (set) var instrutorContratados: [String: Instrutor] = [:]
+    private (set) var aparelhos: [Aparelho] = []
+    private (set) var aulasDisponiveis: [Aula] = []
     
     init (nome: String){
         self.nome = nome
@@ -44,7 +44,7 @@ class Academia {
     }
 
     func listarAlunos() {
-        print("---- Lista de Alunos Matriculados ----")
+        print("\n---- Lista de Alunos Matriculados ----")
         if (alunosMatriculados.isEmpty) {
             print("Nenhum aluno matriculado.")
         } else {
@@ -57,7 +57,7 @@ class Academia {
     }
 
     func listarAulas() {
-        print("---- Lista de Aulas ---")
+        print("\n---- Lista de Aulas ---")
         if (aulasDisponiveis.isEmpty) {
             print("Nenhuma aula disponível.")
         } else {

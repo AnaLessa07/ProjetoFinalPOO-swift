@@ -1,7 +1,7 @@
 import Foundation
 
 class AulaColetiva: Aula{
-    private (set) var alunosInscritos: [String: Aluno] = [:]
+    private (set) var alunosInscritos: [String : Aluno] = [:]
     var capacidadeMaxima: Int
 
     override init (nome: String, instrutor: Instrutor){
@@ -9,22 +9,19 @@ class AulaColetiva: Aula{
         super.init(nome: nome, instrutor: instrutor)
     }
 
-    func inscrever(aluno: Aluno) -> Bool{
-        if (alunosInscritos.count <= capacidadeMaxima){
-            print("Aula Lotada")
+    func inscrever(_ aluno: Aluno) -> Bool {
+        if alunosInscritos.count >= capacidadeMaxima {
+            print("Aula lotada")
             return false
-        }else{
-            print("Turma com vagas abertas")
-            return true
         }
-        if (alunosInscritos.keys.contains(aluno.matricula)) {
-            print("Aluno ja esta na turma")
+        if alunosInscritos.keys.contains(aluno.matricula) {
+            print("Aluno já está inscrito na aula")
             return false
-        } else{
-            alunosInscritos [aluno.matricula] = aluno
-            print("Aluno foi adicionado para aula!")
-            return true
         }
+        alunosInscritos[aluno.matricula] = aluno
+        print("Aluno add com sucesso!")
+        print(alunosInscritos)
+        return true
     }
 
     override func getDescricao() -> String{
